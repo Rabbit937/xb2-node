@@ -2,6 +2,8 @@ const express = require('express')
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
+
 app.get('/', (request, response) => {
     response.send('你好!')
 })
@@ -40,6 +42,16 @@ app.get('/posts/:postId', (request, response) => {
     response.send(post[0])
 })
 
+/**
+ * 创建内容
+ */
+app.post('/posts', (request, response) => {
+    const { content } = request.body; 
+    response.status(201);
+    response.send({
+        message : `成功创建了内容: ${content}`,
+    })
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`)
