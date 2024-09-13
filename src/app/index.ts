@@ -1,0 +1,10 @@
+import express from 'express';
+
+// 创建应用
+const app = express()
+
+// 处理JSON
+app.use(express.json())
+
+// 默认导出
+export default app;
