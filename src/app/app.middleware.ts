@@ -21,8 +21,8 @@ export const defaultErrorHandler = (
     response: Response,
     next: NextFunction
 ) => {
-    if(error.message) {  
-        console.log('🙅',error.message);
+    if (error.message) {
+        console.log('🙅', error.message);
     }
 
     let statusCode: number, message: string;
@@ -32,6 +32,18 @@ export const defaultErrorHandler = (
      */
 
     switch (error.message) {
+        case 'NAME_IS_REQUIRED':
+            statusCode = 400;
+            message = '用户名不能为空';
+            break;
+        case 'PASSWORD_IS_REQUIRED':
+            statusCode = 400;
+            message = '密码不能为空';
+            break; 
+        case 'NAME_ALERADY_EXIST':
+            statusCode = 409;
+            message = '用户名已存在';
+            break;
         default:
             statusCode = 500;
             message = '服务暂时出了点问题 ～～ 🌲';
