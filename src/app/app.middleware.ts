@@ -39,10 +39,18 @@ export const defaultErrorHandler = (
         case 'PASSWORD_IS_REQUIRED':
             statusCode = 400;
             message = '密码不能为空';
-            break; 
+            break;
         case 'NAME_ALERADY_EXIST':
             statusCode = 409;
             message = '用户名已存在';
+            break;
+        case 'NAME_DOES_NOT_EXIST':
+            statusCode = 404;
+            message = '用户名不存在';
+            break;
+        case 'PASSWORD_DOES_NOT_MATCH':
+            statusCode = 400;
+            message = '密码错误';
             break;
         default:
             statusCode = 500;

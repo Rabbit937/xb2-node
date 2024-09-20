@@ -36,7 +36,7 @@ export const hashPassword = async (
 ) => {
     const { password } = request.body;
 
-    request.body.password = createHash('sha256').update(password).digest('hex');;
+    request.body.password = createHash('sha256').update(password).digest('hex');
 
     next();
 }
